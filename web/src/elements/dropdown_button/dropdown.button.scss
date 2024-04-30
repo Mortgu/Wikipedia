@@ -1,0 +1,52 @@
+@import '../../resources/abstracts/mixins.scss';
+@import '../../resources/abstracts/themes.scss';
+@import '../../resources/abstracts/variables.scss';
+
+.dropdown-button {
+    position: relative;
+
+    z-index: 500;
+
+    .dropdown-trigger[data-visibility='true']  {
+        @include themify($themes) {
+            background: darken(themed('TertiaryBackground'), 5);
+        }
+
+        & ~ .dropdown {
+            visibility: visible;
+            pointer-events: all;
+            user-select: all;
+        }
+    }
+
+    .dropdown {
+        visibility: hidden;
+        pointer-events: none;
+        user-select: none;
+
+        position: absolute;
+        right: 0;
+        top: calc(100% + 10px);
+
+        box-shadow: 0 4px 12px rgba(black, .15);
+
+        padding: 5px;
+        border-radius: $borderRadius;
+        z-index: 100;
+
+        @include themify($themes) {
+            border: 1px solid themed('DividerDefault');
+            background: themed('SecondaryBackground');
+        }
+
+        button {
+            width: 100%;
+            
+            &:hover {
+                @include themify($themes) {
+                    background: darken(themed('TertiaryBackground'), 5);
+                }
+            }
+        }
+    }
+}

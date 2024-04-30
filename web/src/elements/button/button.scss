@@ -1,0 +1,180 @@
+@import '../../resources/abstracts/mixins.scss';
+@import '../../resources/abstracts/themes.scss';
+@import '../../resources/abstracts/variables.scss';
+
+.button {
+    width: fit-content;
+
+    border: none;
+    border-radius: $borderRadius;
+
+    font-weight: 600;
+    font-size: 13px;
+
+    cursor: pointer;
+
+    &:focus {
+        box-shadow: 0 0 0 .15rem rgba(black, .25);
+        transition: box-shadow 120ms;
+    }
+
+    &:hover {
+        transition: all 200ms;
+    }
+
+    /** SIZES *********************************/
+    &[data-size='big'] {
+        height: 45px;
+        padding: 0 18px;
+    }
+
+    &[data-size='normal'] {
+        height: 40px;
+        padding: 0 14px;
+    }
+
+    &[data-size='small'] {
+        height: 35px;
+        padding: 0 12px;
+    }
+
+    /** VARIANTS *********************************/
+    &[data-variant='default'] {
+        @include themify($themes) {
+            background: themed('MainText');
+            color: themed('MainBackground');
+        }
+    }
+
+    &[data-variant='ghost'] {
+        background: transparent;
+        white-space: nowrap;
+
+        &:hover {
+            @include themify($themes) {
+                background: themed('SecondaryBackground');
+            }
+        }
+    }
+
+    /**** ICON ******/
+
+    &[data-variant='icon'][data-size='small'] span {
+        font-size: 21px;
+    }
+
+    &[data-variant='icon'] {
+        aspect-ratio: 1/1;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        span {
+            margin: 0;
+
+            @include themify($themes) {
+                color: themed('MainBackground');
+            }
+        }
+
+        @include themify($themes) {
+            background: themed('MainText');
+        }
+    }
+
+    /**** ICON-GHOST ******/
+
+    &[data-variant='icon-ghost'][data-size='small'] span {
+        font-size: 21px;
+    }
+
+    &[data-variant='icon-ghost'] {
+        aspect-ratio: 1/1;
+        padding: 0;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+
+        span {
+            margin: 0;
+        }
+
+        &:hover {
+            @include themify($themes) {
+                background: themed('SecondaryBackground');
+            }
+        }
+    }
+
+    /**** ICON-TEXT ******/
+
+    &[data-variant='icon-text'][data-size='small'] span {
+        font-size: 18px;
+    }
+
+    &[data-variant='icon-text'] {
+        padding: 0 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        grid-gap: 6px;
+        white-space: nowrap;
+
+        span {
+            margin: 0;
+            font-size: 20px;
+
+            @include themify($themes) {
+                color: themed('MainBackground');
+            }
+        }
+
+        p {
+            font-size: 14px;
+
+            @include themify($themes) {
+                color: themed('MainBackground');
+            }
+        }
+
+        @include themify($themes) {
+            background: themed('MainText');
+        }
+    }
+
+    /**** ICON-GHOST-TEXT ******/
+
+    &[data-variant='icon-ghost-text'][data-size='small'] span {
+        font-size: 18px;
+    }
+
+    &[data-variant='icon-ghost-text'] {
+        padding: 0 15px;
+
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        grid-gap: 6px;
+        background: transparent;
+        white-space: nowrap;
+        span {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        p {
+            font-size: 14px;
+        }
+
+        &:hover {
+            @include themify($themes) {
+                background: themed('SecondaryBackground');
+            }
+        }
+    }
+}

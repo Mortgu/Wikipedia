@@ -1,0 +1,57 @@
+@import '../abstracts/mixins.scss';
+@import '../abstracts/themes.scss';
+
+.theme-circle {
+    width: 12px;
+    height: 12px;
+    aspect-ratio: 1/1;
+    border-radius: 50px;
+
+    &.dark {
+        background: map-get($themes, 'dark', 'MainBackground');
+    }
+
+    &.light {
+        background: map-get($themes, 'light', 'MainBackground');
+
+        @include themify($themes) {
+            border: 1px solid themed('DividerDefault');
+        }
+    }
+    
+    &.paper {
+        background: map-get($themes, 'paper', 'MainBackground');
+    }
+
+    &.night {
+        background: map-get($themes, 'night', 'MainBackground');
+    }
+
+    &.eclipse {
+        background: map-get($themes, 'eclipse', 'MainBackground');
+    }
+
+    &.power {
+        background: map-get($themes, 'power', 'MainBackground');
+    }
+
+    &.future {
+        background: map-get($themes, 'future', 'MainBackground');
+    }
+
+    &.retro {
+        background: map-get($themes, 'retro', 'MainBackground');
+
+        @include themify($themes) {
+            border: 1px solid themed('DividerDefault');
+        }
+    }
+
+    &.joy {
+        background: map-get($themes, 'joy', 'MainBackground');
+
+        @include themify($themes) {
+            border: 1px solid themed('DividerDefault');
+        }
+    }
+}

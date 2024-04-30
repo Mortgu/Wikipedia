@@ -1,0 +1,28 @@
+@import "themes.scss";
+@import "variables.scss";
+
+@mixin themify($themes) {
+  @each $name, $values in $themes {
+    .#{$name}-theme & {
+      $theme-map: $values !global;
+      @content;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+// MEDIA QUERIES.
+@mixin media-up($limit) {
+  @media all and (min-width: map-get($breakpoints, $limit)) {
+    @content;
+  }
+}
+
+@mixin media-down($limit) {
+  @media all and (max-width: map-get($breakpoints, $limit)) {
+    @content;
+  }
+}

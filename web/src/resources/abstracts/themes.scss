@@ -1,0 +1,109 @@
+$dark: (
+        DividerDefault: #515151,
+
+        MainBackground: #191A1A,
+        SecondaryBackground: #222222,
+        TertiaryBackground: #303030,
+        MainText: #D9D9D9,
+        SecondaryText: #AEAEAE,
+        DimText: #8A8A8A,
+        AccentText: #5F96CD  
+);
+
+$light: (
+        DividerDefault: #D3D5D9,
+
+        MainBackground: #FFFFFF,
+        SecondaryBackground: #F3F4F6,
+        TertiaryBackground: #EDEFF2,
+        MainText: #202122,
+        SecondaryText: #636C7E,
+        DimText: #B0B6C1,
+        AccentText: #5F96CD
+);
+
+$paper: (
+        DividerDefault: #D1C0,
+
+        MainBackground: #F8F0E5,
+        SecondaryBackground: #F4E8D7,
+        TertiaryBackground: #EBDAC4,
+        MainText: #202122,
+        SecondaryText: #7E6D56,
+        DimText: #BDAD96,
+        AccentText: #5F96CD
+);
+
+$night: (
+        DividerDefault: #51576E,
+
+        MainBackground: #282B38,
+        SecondaryBackground: #343746,
+        TertiaryBackground: #3E4254,
+        MainText: #D9D9D9,
+        SecondaryText: #BDC0CF,
+        DimText: #818698,
+        AccentText: #7B9BBA
+);
+
+$eclipse: (
+        DividerDefault: #383838,
+
+        MainBackground: #030303,
+        SecondaryBackground: #141414,
+        TertiaryBackground: #2A2A2A,
+        MainText: #B5B5B5,
+        SecondaryText: #D9D9D9,
+        DimText: #929292,
+        AccentText: #F9C84B
+);
+
+$power: (
+        DividerDefault: #404B5F,
+
+        MainBackground: #24242A,
+        SecondaryBackground: #191A1C,
+        TertiaryBackground: #3C3C4E,
+        MainText: #CACACA,
+        SecondaryText: #B6B6C3,
+        DimText: #8989A0,
+        AccentText: #9DD27C
+);
+
+$future: (
+        DividerDefault: #3B3161,
+
+        MainBackground: #1B1337,
+        SecondaryBackground: rgba(#F3CE4B, .06),
+        TertiaryBackground: #3A2743,
+        MainText: #E1E0DA,
+        SecondaryText: #F3CE4B,
+        DimText: #9E9E9E,
+        AccentText: #D75EBC
+);
+
+$retro: (
+        DividerDefault: #E4DBD2,
+
+        MainBackground: #F6F1E9,
+        SecondaryBackground: #F3E7DE,
+        TertiaryBackground: #D5C9E8,
+        MainText: #2C2C2C,
+        SecondaryText: #AE794B,
+        DimText: #AFA9A5,
+        AccentText: #D85251
+);
+
+$joy: (
+        DividerDefault: #CCCCCC,
+
+        MainBackground: #EEEEEE,
+        SecondaryBackground: #EDE1E5,
+        TertiaryBackground: #ECDDE2,
+        MainText: #141414,
+        SecondaryText: #46212F,
+        DimText: #8D8D8D,
+        AccentText: #F94B8A
+);
+
+$themes: ( light: $light,  dark: $dark,  paper: $paper, night: $night, eclipse: $eclipse, power: $power, future: $future, retro: $retro, joy: $joy );

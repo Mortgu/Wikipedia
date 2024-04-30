@@ -1,0 +1,118 @@
+@import '../../resources/abstracts/mixins.scss';
+@import '../../resources/abstracts/variables.scss';
+@import '../../resources/abstracts/themes.scss';
+
+.input {
+    position: relative;
+
+    .input-field {
+        width: 100%;
+        min-width: fit-content;
+        height: fit-content;
+
+        padding: 0 3px 0 10px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        border-radius: $borderRadius;
+        position: relative;
+        z-index: 5;
+
+        @include themify($themes) {
+            background: themed('SecondaryBackground');
+        }
+
+        span {
+            font-size: 24px;
+            aspect-ratio: 1/1;
+
+            @include themify($themes) {
+                color: themed('DimText');
+            }
+        }
+
+        input {
+            width: 100%;
+            height: 41px;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-weight: 500;
+
+            &::placeholder {
+                @include themify($themes) {
+                    color: themed('DimText');
+                }
+            }
+        }
+    }
+
+    &[data-variant='search'] {
+        .input-dropdown[data-visibility='true'] {
+            visibility: visible;
+            pointer-events: all;
+            user-select: all;
+        }
+
+        .input-dropdown {
+            width: 100%;
+            height: calc(100% + 50px);
+            padding: 10px;
+    
+            position: absolute;
+            left: -10px;
+            top: -10px;
+    
+            box-sizing: content-box;
+            border-radius: $borderRadius;
+    
+            background-color: red;
+            box-shadow: 0 4px 12px rgba(black, .08);
+    
+            @include themify($themes) {
+                background: themed('MainBackground');
+                border: 1px solid themed('DividerDefault');
+            }
+
+            visibility: hidden;
+            pointer-events: none;
+            user-select: none;
+        }
+
+        .search-ctas {
+            display: flex;
+            grid-gap: 5px;
+
+            .button {
+                &:focus {
+                    @include themify($themes) {
+                        color: themed('DimText');
+                        background: themed('MainBackground');
+                    }
+                }
+
+                
+            }
+
+            .search-cta {
+                font-size: 13.5px;
+                background: transparent;
+                
+                @include themify($themes) {
+                    color: themed('DimText');
+                }
+            }
+
+            hr {
+                width: 1px;
+                border: none;
+
+                @include themify($themes) {
+                    background: themed('DividerDefault');
+                }
+            }
+        }
+    }
+}
