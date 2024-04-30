@@ -3,10 +3,12 @@ import Button from '../../elements/button/button';
 import DropdownButton from '../../elements/dropdown_button/dropdown.button';
 import InputComponent from '../../elements/input/input';
 import Input from '../../elements/input/input';
+import { useGlobalModalContext } from '../modals/modal.component';
 import './navigation.component.scss';
 
 const NavigationComponent = () => {
     const {setTheme} = useThemeContext();
+    const { showModal } = useGlobalModalContext();
 
     return (
         <nav className='navigation'>
@@ -20,7 +22,7 @@ const NavigationComponent = () => {
                             <span className="material-symbols-outlined">person</span>
                         </DropdownButton.Trigger>
                         <DropdownButton.Content>
-                            <Button.IconGhostText>
+                            <Button.IconGhostText onClick={() => { showModal('LoginModal', {}) }}>
                                 <span className="material-symbols-outlined">logout</span>
                                 <p>Login</p>
                             </Button.IconGhostText>

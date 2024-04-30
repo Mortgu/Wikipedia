@@ -5,6 +5,7 @@ import RootRoute from './routes/root';
 import UserProfilePage from './routes/user';
 import { ThemeContextProvider } from './context/themes.context';
 import NavigationComponent from './components/navigation/navigation.component';
+import { GlobalModal } from './components/modals/modal.component';
 
 function App() {
   const router = createBrowserRouter([
@@ -14,8 +15,10 @@ function App() {
 
   return (
     <ThemeContextProvider>
-      <NavigationComponent />
-      <RouterProvider router={router} />
+      <GlobalModal>
+        <NavigationComponent />
+        <RouterProvider router={router} />
+      </GlobalModal>
     </ThemeContextProvider>
   );
 }

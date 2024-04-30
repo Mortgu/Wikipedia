@@ -44,8 +44,16 @@ const DropdownButtonTrigger = ({ variant = 'default', size = 'normal', setVisibl
 DropdownButton.Trigger = DropdownButtonTrigger;
 
 DropdownButton['Content'] = ({ setVisible, visible, children }) => {
+    const childrenWithProps = React.Children.map(children, child => {
+        if (React.isValidElement(child)) {
+            return React.cloneElement(child, { setVisible, visible });
+        }
+
+        return child;
+    });
+
     return (
-        <div className='dropdown'>{children}</div>
+        <div className='dropdown'>{childrenWithProps}</div>
     );
 }
 
