@@ -1,26 +1,24 @@
 import './resources/app.scss';
 
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes, useRoutes } from 'react-router-dom';
 import RootRoute from './routes/root';
-import UserProfilePage from './routes/user';
 import { ThemeContextProvider } from './context/themes.context';
 import NavigationComponent from './components/navigation/navigation.component';
 import { GlobalModal } from './components/modals/modal.component';
+import UserProfilePage from './routes/user';
 
-function App() {
-  const router = createBrowserRouter([
-    { path: '/', element: <RootRoute /> },
-    { path: '/user/:id', element: <UserProfilePage /> }
-  ]);
-
+export default function App() {
   return (
     <ThemeContextProvider>
       <GlobalModal>
         <NavigationComponent />
-        <RouterProvider router={router} />
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<RootRoute />} />
+            <Route path='/test' element={<UserProfilePage />} />
+          </Routes>
+        </BrowserRouter>
       </GlobalModal>
     </ThemeContextProvider>
   );
 }
-
-export default App;

@@ -57,20 +57,21 @@
         }
 
         .input-dropdown {
+            container: ropdown / inline-size;
+
             width: 100%;
             height: calc(100% + 50px);
             padding: 10px;
-    
+
             position: absolute;
             left: -10px;
             top: -10px;
-    
+
             box-sizing: content-box;
             border-radius: $borderRadius;
-    
-            background-color: red;
+
             box-shadow: 0 4px 12px rgba(black, .08);
-    
+
             @include themify($themes) {
                 background: themed('MainBackground');
                 border: 1px solid themed('DividerDefault');
@@ -80,6 +81,8 @@
             pointer-events: none;
             user-select: none;
         }
+
+
 
         .search-ctas {
             display: flex;
@@ -93,13 +96,13 @@
                     }
                 }
 
-                
+
             }
 
             .search-cta {
                 font-size: 13.5px;
                 background: transparent;
-                
+
                 @include themify($themes) {
                     color: themed('DimText');
                 }

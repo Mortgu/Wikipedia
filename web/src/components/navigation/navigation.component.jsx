@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { useThemeContext } from '../../context/themes.context';
 import Button from '../../elements/button/button';
 import DropdownButton from '../../elements/dropdown_button/dropdown.button';
@@ -7,14 +8,14 @@ import { useGlobalModalContext } from '../modals/modal.component';
 import './navigation.component.scss';
 
 const NavigationComponent = () => {
-    const {setTheme} = useThemeContext();
+    const { setTheme } = useThemeContext();
     const { showModal } = useGlobalModalContext();
 
     return (
         <nav className='navigation'>
             <div className='navigation-inner'>
                 <InputComponent.SearchInput className='navigation-search' type="text" placeholder="Search Dikipedia">
-
+                    <p>test</p>
                 </InputComponent.SearchInput>
                 <div className='navigation-ctas'>
                     <DropdownButton>
