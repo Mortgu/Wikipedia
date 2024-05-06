@@ -1,26 +1,27 @@
-import { NavLink, useParams } from "react-router-dom";
-import TabsComponent from "../../components/tabs/tabs.component";
+import { useParams } from "react-router-dom";
+import Layout from "../../layouts/layout";
+import TableComponent from "../../components/tables/table.component";
 
 const ArticlePage = ({ children }) => {
     let { id } = useParams();
 
     return (
-        <section>
-            <div className="page-head" style={{padding: '0 0 20px 0'}}>
-                <h1>JuJutsu Kaisen</h1>
+        <Layout page="article">
+            <div className="">
+                <TableComponent name="Top-level articles">
+                    <TableComponent.Item name="Extant Carnivoria species">
+                        <TableComponent.Item to="/cats" name="Cats">
+                            <TableComponent.Item to="/felinology" name="Felinology" />
+                            <TableComponent.Item to="/felinology" name="Felinology" />
+
+                        </TableComponent.Item>
+                        <TableComponent.Item to="/felinology" name="Felinology" />
+                    </TableComponent.Item>
+                </TableComponent>
             </div>
-            <TabsComponent>
-                <TabsComponent.Item to='.'>
-                    Articles
-                </TabsComponent.Item>
-                <TabsComponent.Item to='./fandom'>
-                    Fandom
-                </TabsComponent.Item>
-                <TabsComponent.Item to='./community'>
-                    Community
-                </TabsComponent.Item>
-            </TabsComponent>
-        </section>
+            <div className=""><p>article</p></div>
+            <div className=""><p>sonstiges</p></div>
+        </Layout>
     )
 }
 

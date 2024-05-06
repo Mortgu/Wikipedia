@@ -14,37 +14,25 @@ const NavigationComponent = () => {
     return (
         <nav className='navigation'>
             <div className='navigation-inner'>
+                <DropdownButton position='left'>
+                    <DropdownButton.Trigger variant='icon-ghost'>
+                        <span className="material-symbols-outlined">menu</span>
+                    </DropdownButton.Trigger>
+                    <DropdownButton.Content>
+                        <Button.IconGhostText>
+                            <span className="material-symbols-outlined">description</span>
+                            <p>Articles</p>
+                        </Button.IconGhostText>
+                        <Button.IconGhostText>
+                            <span className="material-symbols-outlined">group</span>
+                            <p>Characters</p>
+                        </Button.IconGhostText>
+                    </DropdownButton.Content>
+                </DropdownButton>
                 <InputComponent.SearchInput className='navigation-search' type="text" placeholder="Search Dikipedia">
                     <p>test</p>
                 </InputComponent.SearchInput>
                 <div className='navigation-ctas'>
-                    <DropdownButton>
-                        <DropdownButton.Trigger variant='icon-ghost'>
-                            <span className="material-symbols-outlined">person</span>
-                        </DropdownButton.Trigger>
-                        <DropdownButton.Content>
-                            <Button.IconGhostText onClick={() => { showModal('LoginModal', {}) }}>
-                                <span className="material-symbols-outlined">logout</span>
-                                <p>Login</p>
-                            </Button.IconGhostText>
-                            <Button.IconGhostText>
-                                <span className="material-symbols-outlined">person_add</span>
-                                <p>Create account</p>
-                            </Button.IconGhostText>
-                            <Button.IconGhostText>
-                                <span className="material-symbols-outlined">person_add</span>
-                                <p>Save article</p>
-                            </Button.IconGhostText>
-                            <Button.IconGhostText>
-                                <span className="material-symbols-outlined">person_add</span>
-                                <p>Contributions</p>
-                            </Button.IconGhostText>
-                            <Button.IconGhostText>
-                                <span className="material-symbols-outlined">person_add</span>
-                                <p>Talks</p>
-                            </Button.IconGhostText>
-                        </DropdownButton.Content>
-                    </DropdownButton>
                     <DropdownButton>
                         <DropdownButton.Trigger variant='icon-ghost'>
                             <span className="material-symbols-outlined">palette</span>
@@ -88,6 +76,34 @@ const NavigationComponent = () => {
                             </Button.IconGhostText>
                         </DropdownButton.Content>
                     </DropdownButton>
+                    <DropdownButton>
+                        <DropdownButton.Trigger variant='icon-ghost'>
+                            <span className="material-symbols-outlined">person</span>
+                        </DropdownButton.Trigger>
+                        <DropdownButton.Content>
+                            <Button.IconGhostText onClick={() => { showModal('LoginModal', {}) }}>
+                                <span className="material-symbols-outlined">logout</span>
+                                <p>Login</p>
+                            </Button.IconGhostText>
+                            <Button.IconGhostText>
+                                <span className="material-symbols-outlined">person_add</span>
+                                <p>Create account</p>
+                            </Button.IconGhostText>
+                            <Button.IconGhostText>
+                                <span className="material-symbols-outlined">person_add</span>
+                                <p>Save article</p>
+                            </Button.IconGhostText>
+                            <Button.IconGhostText>
+                                <span className="material-symbols-outlined">person_add</span>
+                                <p>Contributions</p>
+                            </Button.IconGhostText>
+                            <Button.IconGhostText>
+                                <span className="material-symbols-outlined">person_add</span>
+                                <p>Talks</p>
+                            </Button.IconGhostText>
+                        </DropdownButton.Content>
+                    </DropdownButton>
+
                 </div>
             </div>
         </nav>

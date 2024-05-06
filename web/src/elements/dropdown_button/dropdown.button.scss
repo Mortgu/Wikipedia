@@ -19,13 +19,20 @@
         }
     }
 
+    &[data-pos='right'] .dropdown {
+        right: 0;
+    }
+
+    &[data-pos='left'] .dropdown {
+        left: 0;
+    }
+
     .dropdown {
         visibility: hidden;
         pointer-events: none;
         user-select: none;
 
         position: absolute;
-        right: 0;
         top: calc(100% + 10px);
 
         box-shadow: 0 4px 12px rgba(black, .15);
@@ -44,7 +51,7 @@
             
             &:hover {
                 @include themify($themes) {
-                    background: darken(themed('TertiaryBackground'), 5);
+                    background: themed('TertiaryBackground');
                 }
             }
         }

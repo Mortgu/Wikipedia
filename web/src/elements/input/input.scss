@@ -82,21 +82,19 @@
             user-select: none;
         }
 
-
-
         .search-ctas {
             display: flex;
             grid-gap: 5px;
 
             .button {
+                border-radius: 3px;
+
                 &:focus {
                     @include themify($themes) {
                         color: themed('DimText');
                         background: themed('MainBackground');
                     }
                 }
-
-
             }
 
             .search-cta {

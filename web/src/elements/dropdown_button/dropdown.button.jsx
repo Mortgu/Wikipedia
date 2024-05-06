@@ -7,7 +7,7 @@ import Button from '../button/button';
 // variant = {'default', 'ghost'}
 // size = {'big', 'normal', 'small'}
 
-const DropdownButton = ({ children }) => {
+const DropdownButton = ({ position='right', children }) => {
     const [visible, setVisible] = useState(false);
     const { useOutsideClick } = useClickHook();
 
@@ -28,7 +28,7 @@ const DropdownButton = ({ children }) => {
 
 
     return (
-        <div ref={ref} className='dropdown-button'>
+        <div ref={ref} className='dropdown-button' data-pos={position}>
             {childrenWithProps}
         </div>
     );

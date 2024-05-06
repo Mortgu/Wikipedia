@@ -12,6 +12,7 @@
     font-size: 13px;
 
     cursor: pointer;
+    border: 1px solid transparent;
 
     a {
         pointer-events: none;
@@ -21,8 +22,10 @@
     }
 
     &:focus {
-        box-shadow: 0 0 0 .15rem rgba(black, .25);
-        transition: box-shadow 120ms;
+        transition: border 120ms;
+        @include themify($themes) {
+            border: 1px solid themed('DividerDefault');
+        }
     }
 
     &:hover {
