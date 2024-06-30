@@ -10,12 +10,12 @@ const ArticlePage = ({ children }) => {
             <div className="">
                 <TableComponent name="Top-level articles">
                     <TableComponent.Item name="Extant Carnivoria species">
-                        <TableComponent.Item to="/cats" name="Cats">
-                            <TableComponent.Item to="/felinology" name="Felinology" />
-                            <TableComponent.Item to="/felinology" name="Felinology" />
-
+                        <TableComponent.Item to="./cats" name="Cats">
+                            <TableComponent.Item to="./breeds" name="Breeds">
+                                <TableComponent.Item to="./american-curl" name="American curl" />
+                            </TableComponent.Item>
+                            <TableComponent.Item to="./felinology" name="Felinology" />
                         </TableComponent.Item>
-                        <TableComponent.Item to="/felinology" name="Felinology" />
                     </TableComponent.Item>
                 </TableComponent>
             </div>

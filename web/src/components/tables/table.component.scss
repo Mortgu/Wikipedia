@@ -33,34 +33,49 @@
 
     .table-item {
         display: grid;
-        grid-gap: 10px;
         font-size: 14px;
+        border-radius: $borderRadius;
+        
+        &.active {
+            @include themify($themes) {
+                background: themed('SecondaryBackground');
+            }
+        }
 
         .item-front {
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
+            padding: 10px 14px;
+            border-radius: $borderRadius;
 
             & * {
                 @include themify($themes) {
-                    color: themed('AccentText');
-                } 
-            }  
+                    //color: themed('AccentText');
+                }
+            }
+
+            &:hover {
+                @include themify($themes) {
+                    background: themed('SecondaryBackground');
+                }
+            }
+
+            span {
+                font-size: 21px;
+            }
         }
 
-        .item-title {
-              
-        }
+        .item-title {}
     }
 
     .table-items {
         margin-left: 20px;
 
         display: grid;
-        grid-gap: 10px;
-
         font-size: 14px;
+
 
         &:empty {
             display: none;

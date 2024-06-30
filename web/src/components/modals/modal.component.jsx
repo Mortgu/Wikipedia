@@ -1,6 +1,6 @@
 import './modal.component.scss';
 
-import { createContext, useContext, useState } from "react";
+import React, { Children, createContext, useContext, useState } from "react";
 import LoginModal from "./templates/login.modal";
 import Button from '../../elements/button/button';
 
@@ -13,8 +13,8 @@ const MODAL_COMPONENTS = {
 }
 
 const initialState = {
-    showModal: (modalType, modalProps) => {},
-    hideModal: () => {},
+    showModal: (modalType, modalProps) => { },
+    hideModal: () => { },
     store: {},
 }
 
@@ -22,17 +22,22 @@ const GlobalModalContext = createContext(initialState);
 export const useGlobalModalContext = () => useContext(GlobalModalContext);
 
 export const GlobalModal = ({ children }) => {
-    const [store, setStore] = useState({});
-    const { modalType, modalProps } = store || {};
+    const [store, setStore] = useState({
+        current: 0
+    });
 
-    const [closed, setClosed] = useState(false);
+    const { modalType, modalProps } = store || {};
 
     const showModal = (modalType, modalProps) => {
         setStore({ ...store, modalType, modalProps });
     }
 
+    const nextPage = () => { }
+
+    const prevPage = () => { }
+
     const closeModal = () => {
-        setStore({  ...store, modalType: null, modalProps: {} });
+        setStore({ ...store, modalType: null, modalProps: {} });
     }
 
     const renderComponent = () => {
@@ -51,16 +56,36 @@ export const GlobalModal = ({ children }) => {
                             <span className="material-symbols-outlined">close</span>
                         </Button.IconGhost>
                     </div>
-                    <div className='window-content'></div>
+                    <div className='window-content'>
+                        <ModalComponent store={store} />
+                    </div>
                 </div>
             </div>
         );
     }
 
     return (
-        <GlobalModalContext.Provider value={{ showModal, closeModal, ...store }}>
+        <GlobalModalContext.Provider value={{ showModal, closeModal, nextPage, prevPage, ...store }}>
             {renderComponent()}
             {children}
         </GlobalModalContext.Provider>
     );
 }
+
+const GlobalModal_Children = ({ children }) => {
+    React.Children.map(children, child => {
+        if (React.isValidElement-(child)) {
+            console.log(child);
+        }
+    });
+
+    return children;
+};
+GlobalModal.Children = GlobalModal_Children;
+
+
+const GlobalModalPage = ({ children }) => (
+    <>page - 1 {children}</>
+)
+
+GlobalModal.Page = GlobalModalPage;

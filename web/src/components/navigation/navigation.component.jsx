@@ -1,11 +1,10 @@
-import { NavLink } from 'react-router-dom';
+import './navigation.component.scss';
+
 import { useThemeContext } from '../../context/themes.context';
 import Button from '../../elements/button/button';
 import DropdownButton from '../../elements/dropdown_button/dropdown.button';
 import InputComponent from '../../elements/input/input';
-import Input from '../../elements/input/input';
 import { useGlobalModalContext } from '../modals/modal.component';
-import './navigation.component.scss';
 
 const NavigationComponent = () => {
     const { setTheme } = useThemeContext();
@@ -14,21 +13,11 @@ const NavigationComponent = () => {
     return (
         <nav className='navigation'>
             <div className='navigation-inner'>
-                <DropdownButton position='left'>
-                    <DropdownButton.Trigger variant='icon-ghost'>
-                        <span className="material-symbols-outlined">menu</span>
-                    </DropdownButton.Trigger>
-                    <DropdownButton.Content>
-                        <Button.IconGhostText>
-                            <span className="material-symbols-outlined">description</span>
-                            <p>Articles</p>
-                        </Button.IconGhostText>
-                        <Button.IconGhostText>
-                            <span className="material-symbols-outlined">group</span>
-                            <p>Characters</p>
-                        </Button.IconGhostText>
-                    </DropdownButton.Content>
-                </DropdownButton>
+                <div className='navigation-items'>
+                    <Button.NavButton to='/'>Home</Button.NavButton>
+                    <Button.NavButton to='/mangas'>Mangas</Button.NavButton>
+                    <Button.NavButton to='/characters'>Characters</Button.NavButton>
+                </div>
                 <InputComponent.SearchInput className='navigation-search' type="text" placeholder="Search Dikipedia">
                     <p>test</p>
                 </InputComponent.SearchInput>
@@ -81,7 +70,7 @@ const NavigationComponent = () => {
                             <span className="material-symbols-outlined">person</span>
                         </DropdownButton.Trigger>
                         <DropdownButton.Content>
-                            <Button.IconGhostText onClick={() => { showModal('LoginModal', {}) }}>
+                            <Button.IconGhostText onClick={() => { showModal('LoginModal') }}>
                                 <span className="material-symbols-outlined">logout</span>
                                 <p>Login</p>
                             </Button.IconGhostText>

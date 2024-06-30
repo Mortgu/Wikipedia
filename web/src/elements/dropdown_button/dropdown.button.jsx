@@ -8,11 +8,11 @@ import Button from '../button/button';
 // size = {'big', 'normal', 'small'}
 
 const DropdownButton = ({ position='right', children }) => {
-    const [visible, setVisible] = useState(false);
+    const [visibility, setVisibility] = useState(false);
     const { useOutsideClick } = useClickHook();
 
     const hideDropdown = () => {
-        setVisible(false);
+        setVisibility(false);
     }
 
     const ref = useOutsideClick(hideDropdown);
@@ -21,7 +21,7 @@ const DropdownButton = ({ position='right', children }) => {
         // Checking isValidElement is the safe way and avoids a
         // typescript error too.
         if (React.isValidElement(child)) {
-            return React.cloneElement(child, { setVisible, visible });
+            return React.cloneElement(child, { setVisibility, visibility });
         }
         return child;
     });
@@ -34,19 +34,20 @@ const DropdownButton = ({ position='right', children }) => {
     );
 }
 
-const DropdownButtonTrigger = ({ variant = 'default', size = 'normal', setVisible, visible, children }) => {
+const DropdownButtonTrigger = ({ variant = 'default', size = 'normal', setVisibility, visibility, children }) => {
     return (
-        <Button variant={variant} size={size} className='button dropdown-trigger' onClick={() => setVisible(true)} visiblity={visible} >
+        <Button variant={variant} size={size} className='button dropdown-trigger' onClick={() => setVisibility(true)} visiblity={visibility} >
             {children}
         </Button>
     );
 }
 DropdownButton.Trigger = DropdownButtonTrigger;
 
-DropdownButton['Content'] = ({ setVisible, visible, children }) => {
+DropdownButton['Content'] = ({ setVisibility, visibility, children }) => {
     const childrenWithProps = React.Children.map(children, child => {
         if (React.isValidElement(child)) {
-            return React.cloneElement(child, { setVisible, visible });
+            // setVisibility, visibility 
+            return React.cloneElement(child, { });
         }
 
         return child;

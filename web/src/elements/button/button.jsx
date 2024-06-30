@@ -6,15 +6,25 @@ import * as React from "react";
 // variant = {'default', 'ghost'}
 // size = {'big', 'normal', 'small'}
 
+
+
 const Button = ({ variant = 'default', size = 'normal', className, children, visiblity = 'false', ...props }) => {
     return (
-        <button data-variant={variant} data-size={size} className={'button ' + className} data-visibility={visiblity} {...props}>
+        <NavLink data-variant={variant} data-size={size} className={'button ' + className} data-visibility={visiblity} {...props}>
             {children}
-        </button>
+        </NavLink>
     );
 }
 
 export default Button;
+
+Button['NavButton'] = ({ size = 'normal', children, to = '#', ...props }) => {
+    return (
+        <Button to={to} variant='nav' size={size} {...props}>
+            {children}
+        </Button>
+    )
+}
 
 Button["Ghost"] = ({ size = 'normal', className, children, visiblity = 'false', ...props }) => {
     return (

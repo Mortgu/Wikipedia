@@ -16,7 +16,7 @@ export default function App() {
       <GlobalModal>
         <NavigationComponent />
         <main id='pages'>
-          <BrowserRouter>
+          <div id='pages-content'>
             <Routes>
               <Route path='/' element={<RootRoute />} />
               <Route path='/test' element={<UserProfilePage />} />
@@ -24,7 +24,7 @@ export default function App() {
                 <Route path=':page' element={<ArticlePage />} />
               </Route>
             </Routes>
-          </BrowserRouter>
+          </div>
         </main>
       </GlobalModal>
     </ThemeContextProvider>

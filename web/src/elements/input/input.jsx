@@ -16,16 +16,16 @@ const InputComponent = ({ children, className = '', type, placeholder, ...props 
 }
 
 const SearchInput = ({ children, className = '', type, placeholder, ...props }) => {
-    const [visible, setVisible] = useState(false);
+    const [visibility, setVisibility] = useState(false);
     const { useOutsideClick } = useClickHook();
 
     const ref = useOutsideClick(() => {
-        setVisible(false);
+        setVisibility(false);
     });
 
     return (
         <div ref={ref} className={"input " + className} data-variant="search" {...props}>
-            <div className="input-field" onClick={() => setVisible(true)}>
+            <div className="input-field" onClick={() => setVisibility(true)}>
                 <input id='input' type={type} placeholder={placeholder} />
                 <div className='input search-ctas'>
                     <Button.IconGhost size='small'>
@@ -37,7 +37,7 @@ const SearchInput = ({ children, className = '', type, placeholder, ...props }) 
                     </Button.Ghost>
                 </div>
             </div>
-            <div className='input-dropdown' data-visibility={visible}>
+            <div className='input-dropdown' data-visibility={visibility}>
                 {children}
             </div>
         </div>

@@ -29,7 +29,7 @@
 
     .modal-window {
         width: fit-content;
-        min-width: 500px;
+        min-width: 600px;
         height: fit-content;
 
         padding: 20px;
@@ -44,29 +44,35 @@
 
         .window-head {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             justify-content: space-between;
 
             grid-gap: 50px;
-            margin-bottom: 20px;
+            position: relative;
 
             .head-title {
-                font-size: 16px;
+                font-size: 18px;
                 line-height: 175%;
-                font-weight: normal;
+                font-weight: 500;
             }
 
             span {
                 font-size: 22px;
             }
+
+            .button {
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translate(0, -50%);
+            }
         }
 
         .window-content {
-            padding: 20px;
             border-radius: $borderRadius;
 
             @include themify($themes) {
-                background: themed('MainBackground');
+                //background: themed('MainBackground');
             }
         }
     }

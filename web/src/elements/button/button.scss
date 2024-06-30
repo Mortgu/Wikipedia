@@ -9,10 +9,14 @@
     border-radius: $borderRadius;
 
     font-weight: 600;
-    font-size: 13px;
+    font-size: 14px;
 
     cursor: pointer;
     border: 1px solid transparent;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     a {
         pointer-events: none;
@@ -30,6 +34,10 @@
 
     &:hover {
         transition: all 200ms;
+    }
+
+    &.active {
+
     }
 
     /** SIZES *********************************/
@@ -184,6 +192,15 @@
         &:hover {
             @include themify($themes) {
                 background: themed('SecondaryBackground');
+            }
+        }
+    }
+
+    /**** NAVIGATION ******/
+    &[data-variant='nav'] {
+        &.active {
+            @include themify($themes) {
+                background: themed('MainBackground');
             }
         }
     }

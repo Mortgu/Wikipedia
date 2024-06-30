@@ -5,11 +5,15 @@
 .navigation {
     width: 100%;
     height: fit-content;
-    padding: 0 0 15px 0;
+    padding: 16px 2rem;
 
     z-index: 1000;
 
     position: relative;
+
+    @include themify($themes) {
+        background: themed('TertiaryBackground');
+    }
 
     .navigation-inner {
         max-width: $viewport;
@@ -23,6 +27,12 @@
         justify-content: space-between;
 
         grid-gap: 40px;
+
+        .navigation-items {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
         .navigation-search {
             flex: 1 1 80%;

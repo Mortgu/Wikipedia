@@ -18,14 +18,14 @@ html, body {
         width: 100vw;
     }
 
-    #app {
-        display: grid;
-        grid-gap: 30px;
-
+    #app #pages {
         width: 100%;
-        max-width: $viewport;
-        margin: auto;
-        padding: 15px;
+        padding: 2rem;
+
+        #pages-content {
+            max-width: $viewport;
+            margin: auto;
+        }
     }
 
     .dark-theme {
