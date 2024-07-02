@@ -198,10 +198,49 @@
 
     /**** NAVIGATION ******/
     &[data-variant='nav'] {
+        padding: 21px 0;
+        height: 100%;
+        width: fit-content;
+
+        border-radius: 0;
+        font-size: 18px;
+        font-weight: 500;
+        outline: none;
+        border: none;
+
+        position: relative;
+
+        @include themify($themes) {
+            color: themed('SecondaryText');
+        }
+
+        &:after {
+            content: ' ';
+            position: absolute;
+
+            bottom: -1px;
+            left: 0;
+
+            width: 0;
+            height: 1px;
+
+            @include themify($themes) {
+                background: themed('MainText');
+            }
+        }
+
         &.active {
             @include themify($themes) {
-                background: themed('MainBackground');
+                color: themed('MainText');
             }
+
+            &:after {
+                width: 100%;
+            }
+        }
+
+        &:focus {
+            border: none;
         }
     }
 }

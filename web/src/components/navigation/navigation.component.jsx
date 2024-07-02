@@ -18,9 +18,7 @@ const NavigationComponent = () => {
                     <Button.NavButton to='/mangas'>Mangas</Button.NavButton>
                     <Button.NavButton to='/characters'>Characters</Button.NavButton>
                 </div>
-                <InputComponent.SearchInput className='navigation-search' type="text" placeholder="Search Dikipedia">
-                    <p>test</p>
-                </InputComponent.SearchInput>
+
                 <div className='navigation-ctas'>
                     <DropdownButton>
                         <DropdownButton.Trigger variant='icon-ghost'>

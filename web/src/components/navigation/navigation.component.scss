@@ -5,20 +5,19 @@
 .navigation {
     width: 100%;
     height: fit-content;
-    padding: 16px 2rem;
+    padding: 0 2rem;
 
     z-index: 1000;
 
     position: relative;
 
     @include themify($themes) {
-        background: themed('TertiaryBackground');
+        background: themed('MainBackground');
     }
 
     .navigation-inner {
         max-width: $viewport;
         width: 100%;
-        height: fit-content;
 
         margin: auto;
 
@@ -28,10 +27,16 @@
 
         grid-gap: 40px;
 
+        @include themify($themes) {
+            border-bottom: 1px solid themed('DividerDefault');
+        }
+
         .navigation-items {
             display: flex;
             align-items: center;
             justify-content: center;
+
+            grid-gap: $DefaultGridGap;
         }
 
         .navigation-search {

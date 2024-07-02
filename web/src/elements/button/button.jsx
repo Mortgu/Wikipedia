@@ -18,7 +18,7 @@ const Button = ({ variant = 'default', size = 'normal', className, children, vis
 
 export default Button;
 
-Button['NavButton'] = ({ size = 'normal', children, to = '#', ...props }) => {
+Button['NavButton'] = ({ size = 'normal', className='navigation-item', children, to = '#', ...props }) => {
     return (
         <Button to={to} variant='nav' size={size} {...props}>
             {children}
