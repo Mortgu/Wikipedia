@@ -1,58 +1,10 @@
-@import '../../resources/abstracts/variables.scss';
-@import '../../resources/abstracts/themes.scss';
-@import '../../resources/abstracts/mixins.scss';
-
 .navigation {
     width: 100%;
-    height: fit-content;
-    padding: 0 2rem;
+    height: 100%;
 
-    z-index: 1000;
-
-    position: relative;
-
-    @include themify($themes) {
-        background: themed('MainBackground');
-    }
+    border-right: 1px solid white;
 
     .navigation-inner {
-        max-width: $viewport;
-        width: 100%;
 
-        margin: auto;
-
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        grid-gap: 40px;
-
-        @include themify($themes) {
-            border-bottom: 1px solid themed('DividerDefault');
-        }
-
-        .navigation-items {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            grid-gap: $DefaultGridGap;
-        }
-
-        .navigation-search {
-            flex: 1 1 80%;
-        }
-
-        .navigation-ctas {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            grid-gap: 10px;
-
-            .navigation-cta {
-                height: 40px;
-                padding: 0;
-            }
-        }
     }
 }

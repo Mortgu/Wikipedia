@@ -1,32 +1,32 @@
 import './resources/app.scss';
+import { useEffect } from 'react';
 
-import { BrowserRouter, createBrowserRouter, Route, RouterProvider, Routes, useRoutes } from 'react-router-dom';
-import { ThemeContextProvider } from './context/themes.context';
-import NavigationComponent from './components/navigation/navigation.component';
-import { GlobalModal } from './components/modals/modal.component';
-
-/** PAGES */
-import RootRoute from './routes/root';
-import {ArticlePage} from './routes/articles/articles.route';
-import UserProfilePage from './routes/user';
+import * as THREE from 'three';
 
 export default function App() {
+  useEffect(() => {
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  
+    const geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
+    const cube = new THREE.Mesh( geometry, material );
+    scene.add( cube );
+
+camera.position.set( 0, 0, 100 );
+camera.lookAt( 0, 0, 0 );
+
+  
+  camera.position.z = 5;
+  
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    document.body.appendChild( renderer.domElement );
+  }, []);
+
   return (
-    <ThemeContextProvider>
-      <GlobalModal>
-        <NavigationComponent />
-        <main id='pages'>
-          <div id='pages-content'>
-            <Routes>
-              <Route path='/' element={<RootRoute />} />
-              <Route path='/test' element={<UserProfilePage />} />
-              <Route path='/wiki/:id' element={<ArticlePage />}>
-                <Route path=':page' element={<ArticlePage />} />
-              </Route>
-            </Routes>
-          </div>
-        </main>
-      </GlobalModal>
-    </ThemeContextProvider>
+    <>
+    </>
   );
 }
