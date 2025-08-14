@@ -15,10 +15,25 @@ const NavigationComponent = () => {
             <div className='navigation-inner'>
                 <div className='navigation-items'>
                     <Button.NavButton to='/'>Home</Button.NavButton>
+                    <Button.NavButton to='/animes'>Animes</Button.NavButton>
                     <Button.NavButton to='/mangas'>Mangas</Button.NavButton>
                     <Button.NavButton to='/characters'>Characters</Button.NavButton>
                 </div>
-
+                <div>
+                    <DropdownButton>
+                        <DropdownButton.ElementTrigger>
+                            <input className='navigation-search' name='search' type="text" placeholder='Search...' />
+                        </DropdownButton.ElementTrigger>
+                        <DropdownButton.Content>
+                            <div className='navigation-search-filters'>
+                                <p>All</p>
+                                <p>Anime</p>
+                                <p>Manga</p>
+                                <p>Characters</p>
+                            </div>
+                        </DropdownButton.Content>
+                    </DropdownButton>
+                </div>
                 <div className='navigation-ctas'>
                     <DropdownButton>
                         <DropdownButton.Trigger variant='icon-ghost'>

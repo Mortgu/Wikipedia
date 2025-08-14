@@ -7,7 +7,7 @@ import Button from '../button/button';
 // variant = {'default', 'ghost'}
 // size = {'big', 'normal', 'small'}
 
-const DropdownButton = ({ position='right', children }) => {
+const DropdownButton = ({ position = 'right', children }) => {
     const [visibility, setVisibility] = useState(false);
     const { useOutsideClick } = useClickHook();
 
@@ -43,11 +43,22 @@ const DropdownButtonTrigger = ({ variant = 'default', size = 'normal', setVisibi
 }
 DropdownButton.Trigger = DropdownButtonTrigger;
 
+const DropdownElementTrigger = ({ setVisibility, visibility, children , ...props }) => {
+    console.log(props);
+    return (
+        <div className='button dropdown-trigger' onClick={() => setVisibility(true)} data-visibility={visibility}>
+            {children}
+        </div>
+    )
+}
+
+DropdownButton.ElementTrigger = DropdownElementTrigger;
+
 DropdownButton['Content'] = ({ setVisibility, visibility, children }) => {
     const childrenWithProps = React.Children.map(children, child => {
         if (React.isValidElement(child)) {
             // setVisibility, visibility 
-            return React.cloneElement(child, { });
+            return React.cloneElement(child, {});
         }
 
         return child;

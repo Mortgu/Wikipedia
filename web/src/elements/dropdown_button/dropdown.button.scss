@@ -28,6 +28,7 @@
     }
 
     .dropdown {
+        min-width: 100%;
         visibility: hidden;
         pointer-events: none;
         user-select: none;

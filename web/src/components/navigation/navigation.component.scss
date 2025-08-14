@@ -1,6 +1,6 @@
-@import '../../resources/abstracts/variables.scss';
-@import '../../resources/abstracts/themes.scss';
-@import '../../resources/abstracts/mixins.scss';
+@import "../../resources/abstracts/variables.scss";
+@import "../../resources/abstracts/themes.scss";
+@import "../../resources/abstracts/mixins.scss";
 
 .navigation {
     width: 100%;
@@ -12,7 +12,47 @@
     position: relative;
 
     @include themify($themes) {
-        background: themed('MainBackground');
+        background: themed("MainBackground");
+    }
+
+    .navigation-search {
+        height: 35px;
+        width: 44em;
+        padding: 0 10px;
+        outline: none;
+        border-radius: 4px;
+
+        @include themify($themes) {
+            background: themed("MainBackground");
+            border: 1px solid themed("DividerDefault");
+        }
+
+        &::placeholder {
+            font-size: 14px;
+            letter-spacing: .25px;
+        }
+
+        &:focus-within,
+        &:hover {
+            @include themify($themes) {
+                background: themed("DividerDefault");
+            }
+        }
+    }
+
+    .navigation-search-filters {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        grid-gap: 20px;
+        padding: 10px 20px;
+        
+         @include themify($themes) {
+            border-bottom: 1px solid themed("DividerDefault");
+        }
+
+        p {
+        }
     }
 
     .navigation-inner {
@@ -28,7 +68,7 @@
         grid-gap: 40px;
 
         @include themify($themes) {
-            border-bottom: 1px solid themed('DividerDefault');
+            border-bottom: 1px solid themed("DividerDefault");
         }
 
         .navigation-items {
